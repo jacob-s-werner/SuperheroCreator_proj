@@ -54,16 +54,18 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_context.Superheroes.Where(superhero => superhero.Id == id).Select(superhero => superhero).ToList()[0]);
         }
 
         // POST: SuperheroesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Superhero superhero)
         {
             try
             {
+                _context.Superheroes.Update(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -75,16 +77,19 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_context.Superheroes.Where(superhero => superhero.Id == id).Select(superhero => superhero).ToList()[0]);
+
         }
 
         // POST: SuperheroesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Superhero superhero)
         {
             try
             {
+                _context.Superheroes.Remove(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
