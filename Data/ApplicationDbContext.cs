@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SuperheroCreator_proj.Models;
 
 namespace SuperheroCreator_proj.Data
 {
@@ -12,5 +13,6 @@ namespace SuperheroCreator_proj.Data
             : base(options)
         {
         }
+        public DbSet<SuperheroCreator_proj.Models.Superhero> Superhero { get; set; }
     }
 }
