@@ -41,6 +41,8 @@ namespace SuperheroCreator_proj.Controllers
         {
             try
             {
+                _context.Superheroes.Add(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
