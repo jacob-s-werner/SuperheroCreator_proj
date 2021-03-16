@@ -25,7 +25,7 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_context.Superheroes.Where(superhero => superhero.Id == id).Select(superhero => superhero).ToList()[0]);
         }
 
         // GET: SuperheroesController/Create
