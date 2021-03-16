@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SuperheroCreator_proj.Data;
+using SuperheroCreator_proj.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,11 @@ namespace SuperheroCreator_proj.Controllers
 {
     public class SuperheroesController : Controller
     {
+        private ApplicationDbContext _context;
+        public SuperheroesController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: SuperheroesController
         public ActionResult Index()
         {
@@ -30,7 +37,7 @@ namespace SuperheroCreator_proj.Controllers
         // POST: SuperheroesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Superhero superhero)
         {
             try
             {
