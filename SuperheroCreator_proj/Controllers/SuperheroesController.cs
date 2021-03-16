@@ -19,7 +19,7 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController
         public ActionResult Index()
         {
-            return View();
+            return View(_context.Superheroes);
         }
 
         // GET: SuperheroesController/Details/5
