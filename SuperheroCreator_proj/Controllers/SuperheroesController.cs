@@ -25,7 +25,7 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController/Details/5
         public ActionResult Details(int id)
         {
-            return View(_context.Superheroes.Where(superhero => superhero.Id == id).Select(superhero => superhero).ToList()[0]);
+            return View(_context.Superheroes.Where(superhero => superhero.Id == id).SingleOrDefault());
         }
 
         // GET: SuperheroesController/Create
@@ -54,7 +54,7 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_context.Superheroes.Where(superhero => superhero.Id == id).Select(superhero => superhero).ToList()[0]);
+            return View(_context.Superheroes.Where(superhero => superhero.Id == id).SingleOrDefault());
         }
 
         // POST: SuperheroesController/Edit/5
@@ -77,7 +77,7 @@ namespace SuperheroCreator_proj.Controllers
         // GET: SuperheroesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_context.Superheroes.Where(superhero => superhero.Id == id).Select(superhero => superhero).ToList()[0]);
+            return View(_context.Superheroes.Where(superhero => superhero.Id == id).SingleOrDefault());
 
         }
 
